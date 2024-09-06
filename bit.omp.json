@@ -1,0 +1,95 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "background": "#2E3440",
+    "foreground": "#D8DEE9",
+    "cyan": "#88C0D0",
+    "blue": "#81A1C1",
+    "green": "#A3BE8C",
+    "yellow": "#EBCB8B",
+    "orange": "#D08770",
+    "red": "#BF616A",
+    "purple": "#B48EAD"
+  },
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "p:yellow",
+          "style": "plain",
+          "template": "<p:green>\ueaf7 </><b>{{ .Path }}</b> ",
+          "type": "path",
+          "properties": {
+            "style": "folder"
+          }
+        },
+        {
+          "foreground": "p:cyan",
+          "style": "plain",
+          "template": "<p:foreground>\u26A1</> <b>{{ .HEAD }}</b>{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} <p:orange>\uf044</p:orange>{{ end }}{{ if .Staging.Changed }} <p:green>\uf046</p:green>{{ end }} ",
+          "type": "git",
+          "properties": {
+            "branch_icon": "",
+            "fetch_status": true
+          }
+        },
+        {
+          "foreground": "p:yellow",
+          "style": "plain",
+          "template": "<p:blue>\ue235</> {{ if .Venv }}({{ .Venv }}) {{ end }}",
+          "type": "python"
+        },
+        {
+          "foreground": "p:cyan",
+          "style": "plain",
+          "template": "<p:blue>\ue626</> ",
+          "type": "go"
+        },
+        {
+          "foreground": "p:green",
+          "style": "plain",
+          "template": "<p:blue>\ue718</> ",
+          "type": "node"
+        },
+        {
+          "foreground": "p:red",
+          "style": "plain",
+          "template": "<p:blue>\ue791</> ",
+          "type": "ruby"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "right",
+      "segments": [
+        {
+          "foreground": "p:purple",
+          "style": "plain",
+          "template": "<p:foreground>\uf252</> {{ .FormattedMs }} ",
+          "type": "executiontime",
+          "properties": {
+            "always_enabled": true
+          }
+        }
+      ],
+      "type": "rprompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "p:foreground",
+          "style": "plain",
+          "template": "> ",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "final_space": true,
+  "version": 2
+}
